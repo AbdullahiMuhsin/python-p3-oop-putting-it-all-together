@@ -1,6 +1,30 @@
-#!/usr/bin/env python3
-
 class Book:
-    pass
-    
-        
+    def __init__(self, title, page_count):
+        """
+        Initializing a new Book instance.
+
+        Parameters:
+        title (str): The title of the book.
+        page_count (int): The total number of pages in the book.
+
+        Returns:
+        None
+        """
+        self.title = title
+        self._page_count = None 
+        self.page_count = page_count
+
+    @property
+    def page_count(self):
+        return self._page_count
+
+    @page_count.setter
+    def page_count(self, value):
+        if isinstance(value, int):
+            self._page_count = value
+        else:
+            print("page_count must be an integer")
+
+    def turn_page(self):
+        print("Flipping the page...wow, you read fast!")
+
